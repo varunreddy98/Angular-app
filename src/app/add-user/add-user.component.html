@@ -1,0 +1,25 @@
+<h3>New User</h3>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname"  placeholder="Enter FirstName" formControlName="firstname">
+      </div>
+      <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" id="lastname"  placeholder="Enter LastName" formControlName="lastname">
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age"  placeholder="Enter Age" formControlName="age">
+        </div>
+        <div class="form-group">
+            <label for="tel">PhoneNumber</label>
+            <input type="tel" class="form-control" id="tel"  placeholder="Enter PhoneNumber" formControlName="tel">
+          </div>
+        <div class="form-group">
+          <label for="dob">DOB</label>
+          <input type="date" class="form-control" id="dob"  placeholder="Enter DOB" formControlName="dob">
+        </div>
+        <button type="submit"  class="btn btn-primary" [disabled]="!userform.valid">Submit</button>
+</form>
+

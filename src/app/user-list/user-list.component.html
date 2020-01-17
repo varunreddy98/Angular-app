@@ -1,0 +1,30 @@
+<div class="active-pink-3 active-pink-4 mb-4">
+  <input class="form-control" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="term" style="width:300px;margin-top:30px;margin-left:10px;">
+</div>
+<div ng-controller="ListCtrl" style="margin-top: 100px;">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+        <th (click)="firstnamefun()" style="background-color: silver;">FirstName</th>
+        <th (click)="lastnamefun()" style="background-color: silver;">LastName</th>
+        <th (click)="agefun()" style="background-color: silver;">Age</th>
+        <th (click)="telfun()" style="background-color: silver;">PhoneNumber</th>
+        <th (click)="dobfun()"style="background-color: silver;">DOB</th>
+        <th style="background-color: silver;"></th>
+        <th style="background-color: silver;"></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of list | filter:term">
+          <th scope="row" (click)="firstnamefun()">{{el.firstname}}</th>
+          <td (click)="lastnamefun()">{{el.lastname}}</td>
+          <td (click)="agefun()">{{el.age | Agepipe}}</td>
+          <td (click)="telfun()">{{el.tel}}</td>
+          <td (click)="dobfun()">{{el.dob | Datepipe}}</td>
+          <td><button class="btn btn-primary" style="background-color: red;" (click)="edit(el.firstname,el.lastname,el.age,el.tel,el.dob)">Edit</button></td>
+          <td><button class="btn btn-primary" style="background-color: red;" (click)="delete(el.tel)">Delete</button></td>
+        </tr>
+    </tbody>
+  </table>
+  <p style=" position: absolute; bottom: 0; left: 0; width: 100%; text-align: center;">Click on any column name to sort accordingly</p>
+</div>
